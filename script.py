@@ -2,7 +2,8 @@ import pandas as pd
 import requests
 import json, os
 from datetime import datetime
-
+from dotenv import load_dotenv
+load_dotenv()
 ## create package
 def sendMetaToCkan(url_ckan, api_key, ckan_meta):
     headers = {
@@ -26,23 +27,25 @@ def uploadFileToCkan(url_ckan, api_key, file_meta, path_input):
         print(res_text)
         print('<b>File has been uploaded</b>')
 
-dfs = pd.read_html(os.getenv("WEB_SCRIPY","https://docs.google.com/spreadsheets/d/e/2PACX-1vQlEs3FxFPwm-dpvU1YdsfRgsbfT9WdiXJHZm9kJgGTziPnk-y3TWtftbSbxj6Fe_g0NxYgqyVHTVU5/pubhtml?gid=1397577608&amp;single=true&amp;widget=true&amp;headers=false"))
-df=dfs[0]
-df.to_csv("df.csv")
+df_original = pd.read_html(os.getenv("WEB_SCRIPY"), encoding='utf-8')
+df = df_original[0].iloc[1:, 1:].copy() 
+df.columns = df_original[0].iloc[0, 1:]
+now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+df.to_csv("./data/"+f'data-scripy-{now}'+".csv",index=False, encoding='utf-8-sig')
 
 ckan_meta = json.load(open('metadata.json'))
 
-url_ckan = os.getenv("CKAN_URL","https://ckan.data.storemesh.com" )  # ใส่ ip ของ ckan server ตรงนี้
-api_key = os.getenv("TOKEN") 
+url_ckan = os.getenv("CKAN_URL")  # ใส่ ip ของ ckan server ตรงนี้
+api_key = os.getenv("TOKEN_ADMIN") 
 
 
-now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 ## for upload file
 file_meta = {
     'package_id': ckan_meta['name'],
     'name': f'data-scripy-{now}',
 }
-# path_input = './result.csv'
-path_input = './df.csv'
+
+path_input = "./data/"+f'data-scripy-{now}'+".csv"
 # sendMetaToCkan(url_ckan, api_key, ckan_meta)
 uploadFileToCkan(url_ckan, api_key, file_meta, path_input)
