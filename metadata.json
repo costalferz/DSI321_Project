@@ -1,9 +1,9 @@
 {
-    "name": "thailandaqi_srg_03",
-    "title": "THAILANDAQI_SRG_03",
+    "name": "weather_srg03",
+    "title": "WEATHER_SRG03",
     "notes": "ข้อมูลดัชนีคุณภาพอากาศในประเทศไทย",
     "data_type": "ข้อมูลสถิติ",
-    "owner_org": "dsi321", 
+    "owner_org": "tu", 
     "data_source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQlEs3FxFPwm-dpvU1YdsfRgsbfT9WdiXJHZm9kJgGTziPnk-y3TWtftbSbxj6Fe_g0NxYgqyVHTVU5/pubhtml?gid=1397577608&amp;single=true&amp;widget=true&amp;headers=false",
     "maintainer": "Kullanut Padtaku",
     "update_frequency_unit": "ชั่วโมง",

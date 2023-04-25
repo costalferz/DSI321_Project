@@ -2,7 +2,9 @@ import pandas as pd
 import requests
 import json, os
 from datetime import datetime
+from dotenv import load_dotenv
 
+load_dotenv()
 ## create package
 def sendMetaToCkan(url_ckan, api_key, ckan_meta):
     headers = {
