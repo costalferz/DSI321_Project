@@ -1,5 +1,8 @@
-FROM python:3.8.16-slim-bullseye
+FROM python:3.8.5-slim-buster
 WORKDIR /code
-COPY . /code
-COPY requirements.txt  requirements.txt
-RUN pip install -r /code/requirements.txt
+COPY . .
+COPY requirement.txt  requirement.txt
+COPY .env-template .env 
+RUN pip install -r /code/requirement.txt
+# CMD RUN SCRIPY.py
+CMD ["python", "scripy.py"]
