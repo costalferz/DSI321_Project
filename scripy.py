@@ -26,9 +26,10 @@ def uploadFileToCkan(url_ckan, api_key, file_meta, path_input):
         print(res_text)
         print('<b>File has been uploaded</b>')
 
-dfs = pd.read_html(os.getenv("WEB_SCRIPY","https://docs.google.com/spreadsheets/d/e/2PACX-1vQlEs3FxFPwm-dpvU1YdsfRgsbfT9WdiXJHZm9kJgGTziPnk-y3TWtftbSbxj6Fe_g0NxYgqyVHTVU5/pubhtml?gid=1397577608&amp;single=true&amp;widget=true&amp;headers=false"))
-df=dfs[0]
-df.to_csv("df.csv")
+df_original = pd.read_html(os.getenv("WEB_SCRIPY","https://docs.google.com/spreadsheets/d/e/2PACX-1vQlEs3FxFPwm-dpvU1YdsfRgsbfT9WdiXJHZm9kJgGTziPnk-y3TWtftbSbxj6Fe_g0NxYgqyVHTVU5/pubhtml?gid=1397577608&amp;single=true&amp;widget=true&amp;headers=false"))
+df = df_original[0].iloc[1:, 1:].copy() 
+df.columns = df_original[0].iloc[0, 1:]
+df.to_csv("df.csv",index=False, encoding='utf-8-sig')
 
 ckan_meta = json.load(open('metadata.json'))
 
