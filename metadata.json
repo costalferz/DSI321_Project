@@ -1,7 +1,7 @@
 {
     "name": "weather_srg03",
     "title": "WEATHER_SRG03",
-    "notes": "ข้อมูลดัชนีคุณภาพอากาศในประเทศไทย",
+    "notes": "ข้อมูลดัชนีคุณภาพอากาศในประเทศไทย มีการอัพเดตข้อมูลทุกๆ 6 ชั่วโมง โดยมีข้อมูลทั้งหมด 12 คอลัมน์ ได้แก่ retrived_at คือ วันและเวลาที่ทำการดึงข้อมูล province_id คือ ไอดีของแต่ละจังหวัดในประเทศไทย city คือ อำเภอที่วัดคุณภาพอากาศ state คือ จังหวัดที่วัดคุณภาพอากาศ country คือ ประเทศที่วัดคุณภาพอากาศ pollution_aqi คือ ค่าดัชนีคุณภาพอากาศที่วัดได้ polution_main คือ ประเภทสารก่อมลพิษทางอากาศ weather_tp คือ อุณหภูมิ หน่วยเป็นเซลเซียส weather_pr คือ ความกดอากาศ หน่วยเป็น hPa weather_hu คือ อัตราส่วนความชื้นสัมพัทธ์ในอากาศ weather_ws คือ ความเร็วลม มีหน่วยเป็น m/s weather_wd คือ ทิศทางลมในระบบมุม 360°",
     "data_type": "ข้อมูลสถิติ",
     "owner_org": "tu", 
     "data_source": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQlEs3FxFPwm-dpvU1YdsfRgsbfT9WdiXJHZm9kJgGTziPnk-y3TWtftbSbxj6Fe_g0NxYgqyVHTVU5/pubhtml?gid=1397577608&amp;single=true&amp;widget=true&amp;headers=false",
@@ -18,7 +18,9 @@
     "maintainer_email": "kullanat.pad@dome.tu.ac.th",
     "objective": [        
     "ยุทธศาสตร์ชาติ",
-    "แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ"],
+    "แผนพัฒนาเศรษฐกิจและสังคมแห่งชาติ",
+    "เพื่อการให้บริการประชาชน",
+    "ดัชนี/ตัวชี้วัดระดับนานาชาติ"],
     "schema":["DateField","CharField","CharField","CharField","CharField","IntField","CharField","IntField","IntField","IntField","FloatField","IntField"],
     "data_category": "ข้อมูลสาธารณะ",
     "geo_coverage": "ประเทศ",
