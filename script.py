@@ -32,20 +32,21 @@ df = df_original[0].iloc[1:, 1:].copy()
 df.columns = df_original[0].iloc[0, 1:]
 now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-df.to_csv("./data/"+f'data-scripy-{now}'+".csv",index=False, encoding='utf-8-sig')
+df.to_csv("./data/data-scripy.csv",index=False, encoding='utf-8-sig')
 
-ckan_meta = json.load(open('metadata.json'))
+ckan_meta = json.load(open('metadata.json'), encoding='utf-8')
+
 
 url_ckan = os.getenv("CKAN_URL")  # ใส่ ip ของ ckan server ตรงนี้
 api_key = os.getenv("TOKEN_ADMIN") 
 
 
-## for upload file
 file_meta = {
     'package_id': ckan_meta['name'],
-    'name': f'data-scripy-{now}',
+    'name': f'data-scripy',
 }
 
-path_input = "./data/"+f'data-scripy-{now}'+".csv"
+path_input = "./data/data-scripy.csv"
 # sendMetaToCkan(url_ckan, api_key, ckan_meta)
+
 uploadFileToCkan(url_ckan, api_key, file_meta, path_input)
