@@ -3,6 +3,6 @@ WORKDIR /code
 COPY . .
 COPY requirement.txt  requirement.txt
 COPY .env-template .env 
+
 RUN pip install -r /code/requirement.txt
 # CMD RUN SCRIPY.py
-CMD ["python", "scripy.py"]

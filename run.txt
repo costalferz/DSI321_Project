@@ -6,6 +6,6 @@ docker push costalferzus/scrapy
 
 minikube start --force --driver=docker
 alias kubectl="minikube kubectl --"
-kubectl --kubeconfig=kubeconfig.yaml get pod
 kubectl --kubeconfig=kubeconfig.yaml apply -f conjob.yaml
+kubectl --kubeconfig=kubeconfig.yaml get pod,cronjob
 kubectl --kubeconfig=kubeconfig.yaml delete cronjob  scripy-web-srg03 
