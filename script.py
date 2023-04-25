@@ -34,7 +34,7 @@ now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 df.to_csv("./data/data-scripy.csv",index=False, encoding='utf-8-sig')
 
-ckan_meta = json.load(open('metadata.json'), encoding='utf-8')
+ckan_meta = json.load(open('metadata.json',encoding='utf-8'))
 
 
 url_ckan = os.getenv("CKAN_URL")  # ใส่ ip ของ ckan server ตรงนี้
