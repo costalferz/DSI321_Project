@@ -3,14 +3,14 @@ kind: CronJob
 metadata:
   name: scripy-web-srg03 # change team-id to your team e.g. wsl01
 spec:
-  schedule: "0 */6 * * *"
+  schedule: "* */6 * * *"
   jobTemplate:
     spec:
       template:
         spec:
           containers:
           - name: scripy-web
-            image: costalferzus/scrapy:latest
+            image: costalferzus/test:0.2
             imagePullPolicy: Always
             env:
               - name: TOKEN
@@ -23,6 +23,6 @@ spec:
               - name: WEB_SCRIPY
                 value: https://docs.google.com/spreadsheets/d/e/2PACX-1vQlEs3FxFPwm-dpvU1YdsfRgsbfT9WdiXJHZm9kJgGTziPnk-y3TWtftbSbxj6Fe_g0NxYgqyVHTVU5/pubhtml?gid=1397577608&amp;single=true&amp;widget=true&amp;headers=false
             command:
-            - python
-            - scripy.py
+              - python
+              - scripy.py
           restartPolicy: OnFailure
