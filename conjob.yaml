@@ -3,14 +3,14 @@ kind: CronJob
 metadata:
   name: scripy-web-srg03 # change team-id to your team e.g. wsl01
 spec:
-  schedule: "* */6 * * *"
+  schedule: "0 */6 * * *"
   jobTemplate:
     spec:
       template:
         spec:
           containers:
           - name: scripy-web
-            image: costalferzus/test:0.2
+            image: costalferzus/scrapy:latest
             imagePullPolicy: Always
             env:
               - name: TOKEN
