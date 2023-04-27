@@ -31,7 +31,7 @@ df = df_original[0].iloc[1:, 1:].copy()
 df.columns = df_original[0].iloc[0, 1:]
 df.to_csv("df.csv",index=False, encoding='utf-8-sig')
 
-ckan_meta = json.load(open('metadata.json'))
+ckan_meta = json.load(open('metadata.json', encoding='utf-8'))
 
 url_ckan = os.getenv("CKAN_URL","https://ckan.data.storemesh.com" )  # ใส่ ip ของ ckan server ตรงนี้
 api_key = os.getenv("TOKEN") 
