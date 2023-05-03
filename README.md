@@ -1,4 +1,5 @@
 # Demo cronjob k8s
+
 0. make docker image
  - edit python code and build to registry
  - edit conjob.yaml
@@ -19,6 +20,11 @@ kubectl --kubeconfig=kubeconfig.yaml get cronjobs -n demo
 4. check pod of job
 ```
 kubectl --kubeconfig=kubeconfig.yaml get pods -n demo
+```
+
+4. delete cronjob
+```
+kubectl --kubeconfig=kubeconfig.yaml delete cronjob <cronjob-namae>
 ```
 ***
 
