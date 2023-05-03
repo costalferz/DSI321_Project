@@ -153,9 +153,9 @@ RUN pip install -r /code/requirement.txt
 ```
 * run with docker
 ```bash
-docker build -t simple-scripy:latest .    # don't forget last dot which means the current directory
-docker run simple-scripy:latest     # run without .env
-docker run --env-file=.env simple-scripy:latest    # run with .env file
+docker build -t costalferzus/scrapy:latest .    # don't forget last dot which means the current directory
+docker run costalferzus/scrapy:latest     # run without .env
+docker run --env-file=.env costalferzus/scrapy:latest    # run with .env file
 ```
 
 At this step you should send your data to CKAN with no cronjob. Without cronjob you still send data to CKAN by manaul. With cronjob, it is more easier and more accurate to process routine tasks by programming. Cronjob is an operation that a part of OS. Linux called "crontab" while Windows called "task schedule".
@@ -169,8 +169,8 @@ Deployment is just like throwing your coding to process in another machine that 
 ```bash
 docker login
 # docker build -t <userName>/<repoName>:<tagName> .
-docker build -t arc6828/simple-scripy:latest .    # don't forget last dot which means the current directory
-docker push arc6828/simple-scripy    #
+docker build -t costalferzus/scrapy:latest .    # don't forget last dot which means the current directory
+docker push costalferzus/scrapy:latest   #
 ```
 
 ## Setting up for K8S Deployment file (.yaml)
@@ -183,14 +183,14 @@ wget https://raw.githubusercontent.com/wasit7/dsi321_2023/main/week13/conjob.yam
 ```
 Please change the "name" to your team_id 
 ```yml
-name: scripy-web-wsl01 # change team-id to your team e.g. wsl01
+name: scripy-web-srg03 # change team-id to your team e.g. wsl01
 
 ```
 * Modify schedule cronjob to every 6 hours
 * Warning : this step requires publish your docker image to docker hub 
 ```yaml
-schedule: "* * * * *"   # modify to every 6 hours
-image: kran13200/simple-scripy:latest # use your docker hub image
+schedule: "0 */6 * * *"   # modify to every 6 hours
+image: costalferzus/scrapy:latest # use your docker hub image
 ```
 
 
